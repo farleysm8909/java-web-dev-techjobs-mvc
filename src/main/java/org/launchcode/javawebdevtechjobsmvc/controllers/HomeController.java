@@ -16,7 +16,7 @@ public class HomeController {
     public String index(Model model) {
 
         HashMap<String, String> actionChoices = new HashMap<>();
-        actionChoices.put("search", "Search");
+        actionChoices.put("search", "Search"); //action.key in index.html followed by action.value
         actionChoices.put("list", "List");
 
         model.addAttribute("actions", actionChoices);

@@ -22,9 +22,9 @@
 
                 <td></td> <!-- Feel free to remove or modify this element if necessary. -->
 
-                <td th:each="category : ${tableChoices}">
+                <td th:each="category : ${tableChoices}"> <!--tableChoices = hashmap containing Job fields (employer etc.) as keys and ArrayList of Employer, Location, etc. objects as values-->
                     <ul>
-                        <li th:each="item : ${category.value}">
+                        <li th:each="item : ${category.value}"> <!--Category represents one key/value pair from tableChoices, so item reps one entry from the stored ArrayList-->
                             <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
                         </li>
                     </ul>
