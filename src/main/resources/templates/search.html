@@ -20,7 +20,7 @@
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
+                        th:checked="${column.key == 'all'}"/> <!--method in searchcontroller must match input name "searchType"-->
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
 
@@ -28,7 +28,7 @@
 
         <p>
             <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <input type="text" name="searchTerm" id="searchTerm" /> <!--method in searchcontroller must match input name "searchTerm"-->
         </p>
 
         <input type="submit" value="Search" />
@@ -37,7 +37,36 @@
     <hr />
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
-
+    <th:block th:each="job : ${jobs}">
+        <table class="job-listing"> <!--Can have one table or one for each job, I did the latter-->
+            <tr>
+                <!--                <td>-->
+                <!--                    <p th:text="${'ID: ' + job.id}"></p>-->
+                <!--                    <p th:text="${'Name: ' + job.name}"></p>-->
+                <!--                    <p th:text="${'Employer: ' + job.employer}"></p>-->
+                <!--                    <p th:text="${'Location: ' + job.location}"></p>-->
+                <!--                    <p th:text="${'Position Type: ' + job.positionType}"></p>-->
+                <!--                    <p th:text="${'Skill: ' + job.coreCompetency}"></p>-->
+                <!--                </td>-->
+                <td th:text="${'ID: ' + job.id}"></td>
+            </tr>
+            <tr>
+                <td th:text="${'Name: ' + job.name}"></td> <!--Can do job.getName() or job.name bc job object-->
+            </tr>
+            <tr>
+                <td th:text="${'Employer: ' + job.getEmployer()}"></td>
+            </tr>
+            <tr>
+                <td th:text="${'Location: ' + job.getLocation()}"></td>
+            </tr>
+            <tr>
+                <td th:text="${'Position Type: ' + job.getPositionType()}"></td>
+            </tr>
+            <tr>
+                <td th:text="${'Skill: ' + job.getCoreCompetency()}"></td>
+            </tr>
+        </table>
+    </th:block>
 </div>
 
 </body>

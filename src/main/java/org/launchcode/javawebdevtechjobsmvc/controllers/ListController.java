@@ -18,11 +18,11 @@ import java.util.HashMap;
 @RequestMapping(value = "list")
 public class ListController {
 
-    static HashMap<String, String> columnChoices = new HashMap<>();
-    static HashMap<String, Object> tableChoices = new HashMap<>();
+    static HashMap<String, String> columnChoices = new HashMap<>(); //stores heading strings in list view
+    static HashMap<String, Object> tableChoices = new HashMap<>(); //stores values to appear in list view
 
     public ListController () {
-        columnChoices.put("all", "All");
+        columnChoices.put("all", "All"); //must match line 23 in list.html?
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
         columnChoices.put("positionType", "Position Type");
@@ -54,7 +54,7 @@ public class ListController {
             model.addAttribute("title", "All Jobs");
         } else {
             jobs = JobData.findByColumnAndValue(column, value);
-            model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
+            model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value); //why not just column instead of columnChoices.get(column)?
         }
         model.addAttribute("jobs", jobs);
 

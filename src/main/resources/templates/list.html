@@ -20,7 +20,7 @@
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td><a th:href="@{/list/jobs(column='All', value='View All')}">View All</a></td> <!-- Feel free to remove or modify this element if necessary. -->
+                <td><ul><li><a th:href="@{/list/jobs(column='All', value='View All')}">View All</a></li></ul></td> <!-- Feel free to remove or modify this element if necessary. -->
 
                 <td th:each="category : ${tableChoices}"> <!--tableChoices = hashmap containing Job fields (employer etc.) as keys and ArrayList of Employer, Location, etc. objects as values-->
                     <ul>
@@ -31,6 +31,5 @@
                 </td>
             </tr>
         </table>
-
     </body>
 </html>
